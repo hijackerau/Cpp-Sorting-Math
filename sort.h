@@ -452,7 +452,7 @@ class mySort {
         //Counting sort is useful when you array is full of integers and the difference between the minimum and maximum values are
         //not large. It works by adding one to the value of the index (of the value it is looping through) and displaying that index the number
         //of times the value of it is. Counting sort is the most efficient sort for just integral values.
-        vector<int> countingSortOf(vector<int> arr, int min, int max) {
+        /*vector<int> countingSortOf(vector<int> arr, int min, int max) {
             min--;
             max++;
             vector<int> table, result, negtable;
@@ -635,7 +635,7 @@ class mySort {
                 }
             }
             arr = result;
-        }
+        }*/
         //Shellsort works by using insertion sort in subarrays, and is better for larger arrays
         //Time = 19ms
         vector<double> shellSortOf(vector<double> arr) {
@@ -864,12 +864,12 @@ class mySort {
         }
         //Merge Sort works by dividing the array down until the array gets small then merging it back the right way.
         //Time =
-        void mergeSort(vector<int>& arr) {
+        /*void mergeSort(vector<int>& arr) {
             this->merge_sorttemp(arr, 0, (arr.size() - 1));
         }
         void mergeSort(vector<double>& arr) {
             this->merge_sorttemp(arr, 0, (arr.size() - 1));
-        }
+        }*/
         //Quicksort uses divide-and-conquer to split the array up, arrange everything around one element and repeats
         //Quicksort is preferable for larger arrays
         //Time = 19ms
