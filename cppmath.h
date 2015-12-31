@@ -433,38 +433,109 @@ class myMath {
         }
         //Finds whether a value is prime or composite
         string isPrimeString(int value) {
-            int i = 2;
-            while (value % i != 0) {
-                if (i > this->ceiling(this->sqrt(value))) {
-                    return "true";
-                }
-                i++;
-            }
-            return "false";
+            if (n1 < 0) {
+				return "false";
+			} else if (n1 == 1) {
+				return "false";
+			} else if (n1 == 0) {
+				return "false";
+			} else if (n1 == 2 || n1 == 3 || n1 == 5 || n1 == 7) {
+				return "true";
+			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
+				return "false";
+			} else {
+				for (var i = 11; i <= Math.floor(Math.sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == Math.floor(Math.sqrt(n1)) || i == Math.floor(Math.sqrt(n1))-1)) {
+						return "true";
+					} else if (n1 % i == 0) {
+					    return "false";
+					}
+				}
+			}
         }
         bool isPrimeBool(int value) {
-            int i = 2;
-            while (value % i != 0) {
-                if (i > this->ceiling(this->sqrt(value))) {
-                    return true;
-                }
-                i++;
-            }
-            return false;
+            if (n1 < 0) {
+				return false;
+			} else if (n1 == 1) {
+				return false;
+			} else if (n1 == 0) {
+				return false;
+			} else if (n1 == 2 || n1 == 3 || n1 == 5 || n1 == 7) {
+				return true;
+			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
+				return false;
+			} else {
+				for (var i = 11; i <= Math.floor(Math.sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == Math.floor(Math.sqrt(n1)) || i == Math.floor(Math.sqrt(n1))-1)) {
+						return true;
+					} else if (n1 % i == 0) {
+					    return false;
+					}
+				}
+			}
         }
         string isCompositeString(int value) {
-            if (isPrimeBool(value)) {
-                return "false";
-            } else {
-                return "true";
-            }
+            if (n1 < 0) {
+				return "false";
+			} else if (n1 == 1) {
+				return "false";
+			} else if (n1 == 0) {
+				return "true";
+			} else if (n1 == 2 || n1 == 3 || n1 == 5 || n1 == 7) {
+				return "false";
+			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
+				return "true";
+			} else {
+				for (var i = 11; i <= Math.floor(Math.sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == Math.floor(Math.sqrt(n1)) || i == Math.floor(Math.sqrt(n1))-1)) {
+						return "false";
+					} else if (n1 % i == 0) {
+					    return "true";
+					}
+				}
+			}
         }
         bool isCompositeBool(int value) {
-            if (isPrimeBool(value)) {
-                return false;
-            } else {
-                return true;
-            }
+             if (n1 < 0) {
+				return false;
+			} else if (n1 == 1) {
+				return false;
+			} else if (n1 == 0) {
+				return true;
+			} else if (n1 == 2 || n1 == 3 || n1 == 5 || n1 == 7) {
+				return false;
+			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
+				return true;
+			} else {
+				for (var i = 11; i <= Math.floor(Math.sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == Math.floor(Math.sqrt(n1)) || i == Math.floor(Math.sqrt(n1))-1)) {
+						return false;
+					} else if (n1 % i == 0) {
+					    return true;
+					}
+				}
+			}
+        }
+        string primeOrComposite(int n1) {
+            if (n1 < 0) {
+				return "neutral";
+			} else if (n1 == 1) {
+				return "neutral"
+			} else if (n1 == 0) {
+				return "neutral";
+			} else if (n1 == 2 || n1 == 3 || n1 == 5 || n1 == 7) {
+				return "prime";
+			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
+				return "composite";
+			} else {
+				for (var i = 11; i <= Math.floor(Math.sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == Math.floor(Math.sqrt(n1)) || i == Math.floor(Math.sqrt(n1))-1)) {
+						return "prime";
+					} else if (n1 % i == 0) {
+					    return "composite";
+					}
+				}
+			}
         }
         //Finds the current time
         time_t now() {
@@ -536,5 +607,6 @@ class myMath {
         int nCr(int n, int r) {
             return (this->factorial(n))/(this->factorial(r) * (this->factorial(n - r)));
         }
+        //The prime decomposition
 };
 myMath Math;
