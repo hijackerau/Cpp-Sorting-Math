@@ -432,7 +432,7 @@ class myMath {
             }
         }
         //Finds whether a value is prime or composite
-        string isPrimeString(int value) {
+        string isPrimeString(int n1) {
             if (n1 < 0) {
 				return "false";
 			} else if (n1 == 1) {
@@ -444,8 +444,8 @@ class myMath {
 			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
 				return "false";
 			} else {
-				for (var i = 11; i <= Math.floor(Math.sqrt(n1)); i++) {
-					if (n1 % i != 0 && (i == Math.floor(Math.sqrt(n1)) || i == Math.floor(Math.sqrt(n1))-1)) {
+				for (int i = 11; i <= this->floor(this->sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == this->floor(this->sqrt(n1)) || i == this->floor(this->sqrt(n1))-1)) {
 						return "true";
 					} else if (n1 % i == 0) {
 					    return "false";
@@ -453,7 +453,7 @@ class myMath {
 				}
 			}
         }
-        bool isPrimeBool(int value) {
+        bool isPrimeBool(int n1) {
             if (n1 < 0) {
 				return false;
 			} else if (n1 == 1) {
@@ -465,8 +465,8 @@ class myMath {
 			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
 				return false;
 			} else {
-				for (var i = 11; i <= Math.floor(Math.sqrt(n1)); i++) {
-					if (n1 % i != 0 && (i == Math.floor(Math.sqrt(n1)) || i == Math.floor(Math.sqrt(n1))-1)) {
+				for (int i = 11; i <= this->floor(this->sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == this->floor(this->sqrt(n1)) || i == this->floor(this->sqrt(n1))-1)) {
 						return true;
 					} else if (n1 % i == 0) {
 					    return false;
@@ -474,7 +474,7 @@ class myMath {
 				}
 			}
         }
-        string isCompositeString(int value) {
+        string isCompositeString(int n1) {
             if (n1 < 0) {
 				return "false";
 			} else if (n1 == 1) {
@@ -486,8 +486,8 @@ class myMath {
 			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
 				return "true";
 			} else {
-				for (var i = 11; i <= Math.floor(Math.sqrt(n1)); i++) {
-					if (n1 % i != 0 && (i == Math.floor(Math.sqrt(n1)) || i == Math.floor(Math.sqrt(n1))-1)) {
+				for (int i = 11; i <= this->floor(this->sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == this->floor(this->sqrt(n1)) || i == this->floor(this->sqrt(n1))-1)) {
 						return "false";
 					} else if (n1 % i == 0) {
 					    return "true";
@@ -495,7 +495,7 @@ class myMath {
 				}
 			}
         }
-        bool isCompositeBool(int value) {
+        bool isCompositeBool(int n1) {
              if (n1 < 0) {
 				return false;
 			} else if (n1 == 1) {
@@ -507,8 +507,8 @@ class myMath {
 			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
 				return true;
 			} else {
-				for (var i = 11; i <= Math.floor(Math.sqrt(n1)); i++) {
-					if (n1 % i != 0 && (i == Math.floor(Math.sqrt(n1)) || i == Math.floor(Math.sqrt(n1))-1)) {
+				for (int i = 11; i <= this->floor(this->sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == this->floor(this->sqrt(n1)) || i == this->floor(this->sqrt(n1))-1)) {
 						return false;
 					} else if (n1 % i == 0) {
 					    return true;
@@ -520,7 +520,7 @@ class myMath {
             if (n1 < 0) {
 				return "neutral";
 			} else if (n1 == 1) {
-				return "neutral"
+				return "neutral";
 			} else if (n1 == 0) {
 				return "neutral";
 			} else if (n1 == 2 || n1 == 3 || n1 == 5 || n1 == 7) {
@@ -528,14 +528,153 @@ class myMath {
 			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
 				return "composite";
 			} else {
-				for (var i = 11; i <= Math.floor(Math.sqrt(n1)); i++) {
-					if (n1 % i != 0 && (i == Math.floor(Math.sqrt(n1)) || i == Math.floor(Math.sqrt(n1))-1)) {
+				for (int i = 11; i <= this->floor(this->sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == this->floor(this->sqrt(n1)) || i == this->floor(this->sqrt(n1))-1)) {
 						return "prime";
 					} else if (n1 % i == 0) {
 					    return "composite";
 					}
 				}
 			}
+        }
+        string primeDecomposition(int n1) {
+            if (this->round(n1) != n1 || n1 < 1) {
+				return "";
+			} else if (n1 == 1) {
+				return "1";
+			} else if (n1 == 2 || n1 == 3 || n1 == 5 || n1 == 7) {
+				return static_cast<ostringstream*>( &(ostringstream() << (n1)) )->str();
+			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
+			    string pd;
+			    int n1pd = n1;
+			    vector<int> n1pdnums;
+			    vector<int> n1pdpowers;
+				while (true) {
+					if (n1pd == 1) {
+						break;
+					} else {
+						for (int i = 2; i <= n1/2; i++) {
+							if (((double)n1pd)/i == this->ceiling(n1pd/i)) {
+								n1pd /= i;
+								for (int j = 0; j < n1pdnums.size(); j++) {
+									if (n1pdnums[j] == i) {
+										n1pdpowers[j]++;
+										break;
+									} else if (j == n1pdnums.size()-1) {
+										n1pdnums.push_back(i);
+										n1pdpowers.push_back(1);
+										break;
+									}
+								}
+								if (n1pdnums.size() == 0) {
+									n1pdnums.push_back(i);
+									n1pdpowers.push_back(1);
+								}
+								break;
+							}
+						}
+					}
+				}
+				for (int i = 0; i < n1pdnums.size(); i++) {
+					pd += static_cast<ostringstream*>( &(ostringstream() << (n1pdnums[i])) )->str();
+					if (n1pdpowers[i] != 1) {
+						pd += ("^" + static_cast<ostringstream*>( &(ostringstream() << (n1pdpowers[i])) )->str());
+					}
+					if (i != n1pdnums.size()-1) {
+						pd += " x ";
+					}
+				}
+				return pd;
+			} else {
+				for (int i = 11; i <= this->floor(this->sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == this->floor(this->sqrt(n1)) || i == this->floor(this->sqrt(n1))-1)) {
+						return static_cast<ostringstream*>( &(ostringstream() << (n1)) )->str();
+					} else if (n1 % i == 0) {
+						string pd;
+                        int n1pd = n1;
+                        vector<int> n1pdnums;
+                        vector<int> n1pdpowers;
+                        while (true) {
+                            if (n1pd == 1) {
+                                break;
+                            } else {
+                                for (int i = 2; i <= n1/2; i++) {
+                                    if (((double)n1pd)/i == this->ceiling(n1pd/i)) {
+                                        n1pd /= i;
+                                        for (int j = 0; j < n1pdnums.size(); j++) {
+                                            if (n1pdnums[j] == i) {
+                                                n1pdpowers[j]++;
+                                                break;
+                                            } else if (j == n1pdnums.size()-1) {
+                                                n1pdnums.push_back(i);
+                                                n1pdpowers.push_back(1);
+                                                break;
+                                            }
+                                        }
+                                        if (n1pdnums.size() == 0) {
+                                            n1pdnums.push_back(i);
+                                            n1pdpowers.push_back(1);
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        for (int i = 0; i < n1pdnums.size(); i++) {
+                            pd += static_cast<ostringstream*>( &(ostringstream() << n1pdnums[i]) )->str();
+                            if (n1pdpowers[i] != 1) {
+                                pd += "^" + static_cast<ostringstream*>( &(ostringstream() << (n1pdpowers[i])) )->str();
+                            }
+                            if (i != n1pdnums.size()-1) {
+                                pd += " x ";
+                            }
+                        }
+                        return pd;
+					}
+				}
+			}
+        }
+        vector <int> getFactors(int n1) {
+            vector<int> n1factors;
+            if (n1 < 0 || n1 == 0 || this->round(n1) != n1) {
+			} else if (n1 == 1) {
+				n1factors.push_back(1);
+			} else if (n1 == 2 || n1 == 3 || n1 == 5 || n1 == 7) {
+				n1factors.push_back(1);
+				n1factors.push_back(n1);
+			} else if (((n1 % 6 != 1)&&(n1 % 6 != 5))||(n1 % 5 == 0) || (n1 % 7 == 0)) {
+				for (int i = 2; i <= this->floor(this->sqrt(n1)); i++) {
+					if (n1 == this->floor(this->sqrt(n1)) * this->floor(this->sqrt(n1)) && i == this->sqrt(n1)) {
+						n1factors.push_back(i);
+					} else if (n1 % i == 0) {
+						n1factors.push_back(i);
+						n1factors.push_back(n1/i);
+					}
+				}
+				n1factors.push_back(1);
+				n1factors.push_back(n1);
+				Sort.quickSort(n1factors);
+			} else {
+				for (int i = 11; i <= this->floor(this->sqrt(n1)); i++) {
+					if (n1 % i != 0 && (i == this->floor(this->sqrt(n1)) || i == this->floor(this->sqrt(n1))-1)) {
+						n1factors.push_back(1);
+						n1factors.push_back(n1);
+					} else if (n1 % i == 0) {
+						for (int i = 2; i <= this->floor(this->sqrt(n1)); i++) {
+                            if (n1 == this->floor(this->sqrt(n1)) * this->floor(this->sqrt(n1)) && i == this->sqrt(n1)) {
+                                n1factors.push_back(i);
+                            } else if (n1 % i == 0) {
+                                n1factors.push_back(i);
+                                n1factors.push_back(n1/i);
+                            }
+                        }
+                        n1factors.push_back(1);
+                        n1factors.push_back(n1);
+                        Sort.quickSort(n1factors);
+					}
+				}
+			}
+			return n1factors;
         }
         //Finds the current time
         time_t now() {
