@@ -10,4 +10,4 @@ Remember to reference it with:
 or wherever you have stored the file,
 e.g. `#include "C:\Documents\Headers\cppmath.h"`
 
-Note: Also, remember to put cppmath.h and sort.h or the sorting functions will not work.
+Note: Also, remember to put `cppmath.h` and `sort.h` in the same folder (or its default position when unzipped) or the sorting functions will not work.
