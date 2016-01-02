@@ -7,7 +7,6 @@ Remember to reference it with:
 
 `#include "cppmath.h"`
 
-(ignoring the apostrophes)
 or wherever you have stored the file,
 e.g. `#include "C:\Documents\Headers\cppmath.h"`
 
