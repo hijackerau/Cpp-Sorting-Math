@@ -2,9 +2,9 @@
 
 //cppmath.h is compatible for C++ files but NOT C files
 //cppmath.h has a developed C++ replacement for the JS Math object
-//It adds many functions such as nPr, nCr, factorial, floor, ceiling, round, fibonacci, HCF, rand, LCM/GCD, factor(algebraic), isPrime and isComposite.
+//It adds many functions such as nPr, nCr, factorial, floor, ceiling, round, fibonacci, HCF, rand, LCM/GCD, factor(algebraic), changeBase, isPrime and isComposite.
 //It also includes popular function groups such as the trigonometric functions, statistical functions, geometrical functions and figurate functions
-//The Math library includes all of the methods and constants that is included in the JS Math object such as min, max, abs, pow, exp, rand, log
+//The Math library includes all of the methods and constants that is included in the JS Math object such as min, max, abs, pow, exp, rand, log and PI
 //The sorting library is included with this. Reference this by using the Sort object, like 'Sort.quickSort(array)'. This includes many sorts such as
 //insertion sort, selection sort, bubble sort, shell sort, quick sort, int sort, merge sort and heap sort
 //Time measurements are using Intel Core i7
@@ -86,6 +86,14 @@ class myMath {
         //Find the ceiling of a value
         //17ms for ceiling(34.83)
         int ceiling(double value) {
+            double mod = value - (int)value;
+            if (mod > 0) {
+                return (int)value + 1;
+            } else {
+                return value;
+            }
+        }
+        int ceil(double value) {
             double mod = value - (int)value;
             if (mod > 0) {
                 return (int)value + 1;
@@ -431,7 +439,7 @@ class myMath {
                 return true;
             }
         }
-        //Finds whether a value is prime or composite
+        //The following functions find whether a value is prime or composite
         string isPrimeString(int n1) {
             if (n1 < 0) {
 				return "false";
@@ -537,6 +545,7 @@ class myMath {
 				}
 			}
         }
+        //Finds the prime decomposition of a number i.e. what primes the number is made up of (apart from one)
         string primeDecomposition(int n1) {
             if (this->round(n1) != n1 || n1 < 1) {
 				return "";
@@ -634,6 +643,7 @@ class myMath {
 				}
 			}
         }
+        //Gets the factors of a number i.e. everything that the number is divisible by
         vector <int> getFactors(int n1) {
             vector<int> n1factors;
             if (n1 < 0 || n1 == 0 || this->round(n1) != n1) {
@@ -746,6 +756,12 @@ class myMath {
         int nCr(int n, int r) {
             return (this->factorial(n))/(this->factorial(r) * (this->factorial(n - r)));
         }
-        //The prime decomposition
+        //The following functions change the base of a number and returns value in new base.
+        int changeBase(int num, int fromBase, int toBase) {
+        }
+        int fromBase10(int num, int toBase) {
+        }
+        int toBase10(double num, int fromBase) {
+        }
 };
 myMath Math;
